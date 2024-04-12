@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Inverse checkbox selection bug
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Reproduction steps
 
-## Available Scripts
+1. `npm install && npm run`
+1. Go to monday Developer Centre
+1. Create a new monday app, name it _Inverse checkbox selection_
+1. Create a new feature
+1. Select _Board View_, _Next_, _Start from scratch_, _Create_
+1. Name it _Inverse checkbox selection_
+1. Add a new build: `http://localhost:3000`
+1. Go to _View Setup_ and add a _Multiple selection_ field
+1. Add the following options
+   - Text: A, Value: A
+   - Text: B, Value: B
+   - Text: C, Value: C
+   - Deselect _Required for onboarding_
+   - Click _Done_, _Save Feature_
+1. Go to a monday board and install the newly created board view feature
+1. Open the board's settings
+1. Check option C
 
-In the project directory, you can run:
+## Expected result
 
-### `npm start`
+1. Option C is checked
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Actual result
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Option A and B are checked
 
-### `npm test`
+## Why is fixing this bug important to me?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I want the user to be able to select from a list of countries. Multiple selection is the only option for such a setting. If the user clicks one country, and monday checks all other countries, that's a horrible experience having to uncheck them all.
